@@ -1,0 +1,26 @@
+.Tile {
+    display: flex;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    padding: 10px;
+    margin: 10px;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 0.75rem;
+    box-shadow: 5px 5px 10px lightgrey;
+    align-items: center;
+    justify-items: center;
+
+  }
+
+.Tile:hover {
+    opacity: .75;
+}
+  
+  .Tile .image-container img {
+    width: 6rem;
+    margin-top: 0.5rem;
+    align-content: center;
+    justify-content: center;
+  }
+  
