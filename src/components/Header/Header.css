@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+
+.Header {
+    background-color: lightpink;
+    height: 6rem;
+   
+}
+
+.Header h1 {
+    font-family: 'Monoton', cursive;
+    font-size: 6rem;
+    color: mintcream;
+    text-shadow: 2px 2px 5px palevioletred;
+    box-shadow: 2px 2px 5px lightgrey;
+    margin-left: 1rem;
+
+}

@@ -17,10 +17,10 @@
     opacity: .75;
 }
   
-  .Tile .image-container img {
+.Tile .image-container img {
     width: 6rem;
     margin-top: 0.5rem;
     align-content: center;
     justify-content: center;
-  }
+ }
   
