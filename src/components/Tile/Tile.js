@@ -1,39 +1,44 @@
 import React from 'react';
 import './Tile.css';
-import Img from './img/019-jellyfish.png'
-
 
 class Tile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cardNumber: 0,
             isActive: false,
-            isMatched: false
+            isMatched: false,
         }
         this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
-        this.setState({
-            cardNumber: Math.ceil(Math.random() * 8),
-        })
+        // this.setState ({
+        //     isActive: false,
+        //     isMatched: false
+        // })
+        
+        
+        // this.setState({
+        //     cardNumber: Math.ceil(Math.random() * 8),
+        // })
     }
 
     handleClick(){
-        this.setState({
-            isActive: true
-        })
-        console.log('I was clicked.');
-        console.log(this.state.isActive);
+        
+        
+        this.setState(prevState => ({
+            isActive: !prevState.isActive
+        }));
     }
+
+
     
     render() {
         return (
-            <div className='Tile' onClick={this.handleClick}>
-                <div className='image-container'>
-                    <img src={Img}/>
-                    <p>{this.state.cardNumber}</p>
+            <div className="Tile" onClick={this.handleClick}>
+                <div className="image-container">
+                    <img src={`./img/animal${this.props.cardNumber}.png`} alt="card"/>
+                    <p>{this.props.cardNumber} Active: {this.state.isActive ? 'true' : 'false'} Matched: {this.state.isMatched ? 'true' : 'false'}</p>
                 </div>
             </div>
         )
