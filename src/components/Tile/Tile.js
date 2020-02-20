@@ -12,20 +12,10 @@ class Tile extends React.Component {
     }
 
     componentDidMount() {
-        // this.setState ({
-        //     isActive: false,
-        //     isMatched: false
-        // })
         
-        
-        // this.setState({
-        //     cardNumber: Math.ceil(Math.random() * 8),
-        // })
     }
 
     handleClick(){
-        
-        
         this.setState(prevState => ({
             isActive: !prevState.isActive
         }));
@@ -34,10 +24,27 @@ class Tile extends React.Component {
 
     
     render() {
+        const inactiveStyle = {
+           
+            
+        };
+
+        const activeStyle = {
+            backgroundColor: "red",
+            
+        
+        };
+
+        const matchedStyle = {
+
+            
+        };
+
+
         return (
-            <div className="Tile" onClick={this.handleClick}>
+            <div className="Tile" onClick={this.handleClick} style={this.state.isActive ? activeStyle : inactiveStyle} >
                 <div className="image-container">
-                    <img src={`./img/animal${this.props.cardNumber}.png`} alt="card"/>
+                    <img src={`./img/animal${this.props.cardNumber}.png`} alt="card" style={this.state.isActive ? {display: "inline-block"} : {display: "none"}}/>
                     <p>{this.props.cardNumber} Active: {this.state.isActive ? 'true' : 'false'} Matched: {this.state.isMatched ? 'true' : 'false'}</p>
                 </div>
             </div>
