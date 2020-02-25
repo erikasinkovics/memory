@@ -1,0 +1,35 @@
+.TileBack {
+    display: flex;
+    flex-direction: column;
+    background-color: ivory;
+    background: repeating-radial-gradient(
+                circle,
+                ivory,
+                ivory 4px,
+                salmon 4px,
+                salmon 10px
+    );
+    padding: 10px;
+    margin: 10px;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 0.75rem;
+    box-shadow: 5px 5px 10px lightgrey;
+    align-items: center;
+    justify-items: center;
+
+  }
+
+.TileBack:hover {
+    opacity: .75;
+}
+
+
+.TileBack .image-container img {
+    width: 6rem;
+    margin-top: 0.5rem;
+    align-content: center;
+    justify-content: center;
+    display: none;
+ }
+  
