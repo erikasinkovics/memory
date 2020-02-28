@@ -26,24 +26,62 @@ class TileContainer extends React.Component {
     handleClick(tileId, tileNumber) {
         const tiles = [...this.state.tiles];
         tiles[tileId].isActive = !tiles[tileId].isActive;
-        this.setState({
-           tiles: tiles
-        })
+            this.setState({
+                tiles: tiles
+            })
+       
+        const check = this.state.tiles.filter(item => item.isActive === true);
+        
+        if (check.length === 2 && check[0].tileNumber === check[1].tileNumber ) {
+            console.log('matched');
+            tiles[check[0].tileId].isMatched = true;
+            tiles[check[1].tileId].isMatched = true;
+            tiles[check[0].tileId].isActive = false;
+            tiles[check[1].tileId].isActive = false;
+            console.log(this.state.tiles[check[0].tileId]);
+            console.log(this.state.tiles[check[1].tileId]);
+        } 
+        
     }
+    
 
     render() {
 
-        const cards = this.state.tiles.map((tile, index) => {
+        const deck = this.state.tiles.map((tile, index) => {
             if (tile.isActive === false) {
-                return <TileBack tileId={tile.tileId} onClick={this.handleClick} tileNumber={tile.tileNumber}/>
+                return (
+                <div>
+                    <TileBack 
+                        key={tile.tileId}
+                        tileId={tile.tileId}
+                        onClick={this.handleClick}
+                        tileNumber={tile.tileNumber}
+                        matched={tile.isMatched}
+                        active={tile.isActive} />
+                        
+                <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
+                </div>
+                )
             } else {
-                return <TileFront tileId={tile.tileId} onClick={this.handleClick} tileNumber={tile.tileNumber}/>
+                return (
+                <div>
+                    <TileFront 
+                        key={tile.tileId}
+                        tileId={tile.tileId}
+                        onClick={this.handleClick}
+                        tileNumber={tile.tileNumber}
+                        matched={tile.isMatched}
+                        active={tile.isActive}/>
+
+                    <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
+                </div>
+                )
             }
         });
 
         return (
             <div className="TileContainer">
-               {cards}
+               {deck}
             </div>
          );
     }
