@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Concert+One&display=swap');
+
 .Scores {
     background-color: #9381FF;
     padding: 10px;
@@ -17,11 +19,13 @@
     color: #F8F7FF;
     font-weight: bolder;
     font-size: 1.25rem;
+    font-family: 'Concert One';
     
 }
 
 .Scores h3 {
-    color: white;
+    color: #F8F7FF;
     font-weight: bolder;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    font-family: 'Concert One';
 }

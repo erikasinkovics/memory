@@ -1,4 +1,15 @@
 .Footer {
-    height: 3rem;
+    height: 4rem;
     background-color: #B8B8FF;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 3rem;
+}
+
+.Footer h2 {
+    color: white;
+    font-weight: bolder;
+    font-size: 1.25rem;
+    font-family: 'Concert One';
 }
