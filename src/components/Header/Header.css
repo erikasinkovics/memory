@@ -2,7 +2,7 @@
 
 .Header {
     display: flex;
-    background-color: lightpink;
+    background-color: #B8B8FF;
     height: 6rem;
     justify-content: center;
     align-content: center;
@@ -13,8 +13,8 @@
 .Header h1 {
     font-family: 'Monoton', cursive;
     font-size: 6rem;
-    color: ivory;
-    text-shadow: 2px 2px 5px palevioletred;
+    color: #F8F7FF;
+    text-shadow: 2px 2px 5px #9381FF;
     margin-left: 1rem;
 
 }

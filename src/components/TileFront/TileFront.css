@@ -1,7 +1,7 @@
 .TileFront {
     display: flex;
     flex-direction: column;
-    background-color: ivory;
+    background-color: #FFEEDD;
     padding: 10px;
     margin: 10px;
     width: 7rem;
@@ -13,12 +13,14 @@
 
   }
 
+.TileFront[matched='true']{
+  opacity: 0.40;
+}
+
 .TileFront:hover {
     opacity: .75;
 }
 
-
-  
 .TileFront img {
     width: 6rem;
     margin-top: 0.5rem;

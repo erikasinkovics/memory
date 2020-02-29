@@ -5,7 +5,9 @@
     width: 40rem;
     align-content: space-around;
     justify-content: space-around;
-    
+  }
 
+  .TileContainer p {
+    display: none;
   }
   

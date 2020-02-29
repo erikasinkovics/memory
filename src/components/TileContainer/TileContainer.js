@@ -25,22 +25,28 @@ class TileContainer extends React.Component {
 
     handleClick(tileId, tileNumber) {
         const tiles = [...this.state.tiles];
+        
+        if (tiles[tileId].isActive === true){
+            return;
+        }
+        
         tiles[tileId].isActive = !tiles[tileId].isActive;
-            this.setState({
-                tiles: tiles
-            })
-       
-        const check = this.state.tiles.filter(item => item.isActive === true);
+        
+        const check = this.state.tiles.filter(item => item.isActive === true && item.isMatched === false);
         
         if (check.length === 2 && check[0].tileNumber === check[1].tileNumber ) {
             console.log('matched');
             tiles[check[0].tileId].isMatched = true;
             tiles[check[1].tileId].isMatched = true;
+
+        } else if (check.length === 2 && check[0].tileNumber !== check[1].tileNumber ) {
             tiles[check[0].tileId].isActive = false;
             tiles[check[1].tileId].isActive = false;
-            console.log(this.state.tiles[check[0].tileId]);
-            console.log(this.state.tiles[check[1].tileId]);
-        } 
+        }
+
+        this.setState({
+            tiles: tiles
+        })
         
     }
     
@@ -58,7 +64,7 @@ class TileContainer extends React.Component {
                         tileNumber={tile.tileNumber}
                         matched={tile.isMatched}
                         active={tile.isActive} />
-                        
+
                 <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
                 </div>
                 )

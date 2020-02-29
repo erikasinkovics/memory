@@ -1,0 +1,27 @@
+.Scores {
+    background-color: #9381FF;
+    padding: 10px;
+    margin: 10px;
+    width: 5rem;
+    height: 14rem;
+    border-radius: 0.75rem;
+    box-shadow: 3px 3px 5px lightgrey;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
+}
+
+.Scores h2 {
+    color: #F8F7FF;
+    font-weight: bolder;
+    font-size: 1.25rem;
+    
+}
+
+.Scores h3 {
+    color: white;
+    font-weight: bolder;
+    font-size: 1.25rem;
+}

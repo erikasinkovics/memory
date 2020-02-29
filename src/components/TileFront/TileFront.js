@@ -7,8 +7,10 @@ function TileFront(props) {
     return (
         <div 
             className="TileFront"
-            onClick={() => props.onClick(props.tileId, props.tileNumber)}>
-             
+            onClick={() => props.onClick(props.tileId, props.tileNumber)}
+            matched={props.matched.toString()}
+            active={props.active.toString()}
+            >
             <img src={`./img/animal${props.tileNumber}.png`}/>
             
         </div>

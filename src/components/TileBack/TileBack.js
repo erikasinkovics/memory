@@ -6,8 +6,11 @@ function TileBack(props) {
     return (
         <div 
             className="TileBack"
-            onClick={() => props.onClick(props.tileId, props.tileNumber)}>
-           
+            onClick={() => props.onClick(props.tileId, props.tileNumber)}
+            matched={props.matched.toString()}
+            active={props.active.toString()}
+            >
+            
         </div>
     )
     
