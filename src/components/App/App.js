@@ -6,8 +6,10 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function App() {
+  
+  
   return (
-    <div className="App">
+    <div className="App" >
       <Header />
       <Main />
       <Footer />

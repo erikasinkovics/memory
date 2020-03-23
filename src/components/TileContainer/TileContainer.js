@@ -6,6 +6,7 @@ import TileBack from '../TileBack/TileBack';
 import tileData from './tileData'; 
 
 
+
 class TileContainer extends React.Component {
 
     constructor(props) {
@@ -22,6 +23,7 @@ class TileContainer extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this);
     }
+
 
     handleClick(tileId, tileNumber) {
         const tiles = [...this.state.tiles];
@@ -44,12 +46,9 @@ class TileContainer extends React.Component {
             tiles[check[1].tileId].isActive = false;
         }
 
-        this.setState({
-            tiles: tiles
-        })
+        this.setState({ tiles: tiles });
         
     }
-    
 
     render() {
 
