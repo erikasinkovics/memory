@@ -1,13 +1,13 @@
 .Footer {
     display: flex;
     flex-direction: row;
-    padding-top: 3.5vh;
+    padding-top: 2vh;
     
     position: fixed;
     bottom: 0;
     z-index: 2;
 
-    height: 16vh;
+    height: 14vh;
     width: 100%;
     background-color: #B8B8FF;
 

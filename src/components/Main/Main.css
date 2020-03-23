@@ -3,9 +3,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 1em;
+    padding: 2vh;
     position: relative;
-    top: 6.5rem;
+    top: 14vh;
     z-index: 1;
     
 }

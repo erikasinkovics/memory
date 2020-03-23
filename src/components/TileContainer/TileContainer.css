@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto auto auto;
-    width: 70vh;
-    height: 70vh;
+    width: 66vh;
+    height: 66vh;
   }
 
   .TileContainer p {
