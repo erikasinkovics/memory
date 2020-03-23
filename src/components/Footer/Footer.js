@@ -1,12 +1,14 @@
 import React from 'react';
 import './Footer.css';
+import Scores from '../Scores/Scores';
+import NewGameButton from '../NewGameButton/NewGameButton';
 
 
 function Footer() {
     return (
         <div className="Footer">
-            <h2>Memory</h2>
-            <h4></h4>   
+            <Scores />
+            <NewGameButton />
         </div>
     
     )

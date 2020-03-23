@@ -1,19 +1,16 @@
 .Footer {
-    height: 8vh;
-    background-color: #B8B8FF;
     display: flex;
-    align-items: center;
-    justify-content: left;
-    padding-left: 4vh;
+    flex-direction: row;
+    padding-top: 3.5vh;
+    
     position: fixed;
     bottom: 0;
-    width: 100%;
     z-index: 2;
-}
 
-.Footer h2 {
-    color: white;
-    font-weight: bolder;
-    font-size: 3vh;
-    font-family: 'Concert One';
+    height: 16vh;
+    width: 100%;
+    background-color: #B8B8FF;
+
+    justify-content: center;
+    
 }
