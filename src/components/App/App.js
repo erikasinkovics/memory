@@ -1,17 +1,15 @@
 import React from 'react';
 import './App.css';
 
-import Main from '../Main/Main';
+import TileContainer from '../TileContainer/TileContainer';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-function App() {
-  
-  
+function App (props) {
   return (
     <div className="App" >
       <Header />
-      <Main />
+      <TileContainer key={'1'} matchedCount={props.matchedCount}/>
       <Footer />
     </div>
   );

@@ -4,9 +4,16 @@
     grid-template-rows: auto auto auto auto;
     width: 66vh;
     height: 66vh;
+    position: relative;
+    top: 15vh;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
   }
 
   .TileContainer p {
     display: none;
   }
-  
+
+
+
