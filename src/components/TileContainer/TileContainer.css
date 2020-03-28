@@ -1,14 +1,23 @@
-.TileContainer {
+@import url('https://fonts.googleapis.com/css?family=Concert+One&display=swap');
+
+.TileContainer{
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto auto auto;
     width: 66vh;
     height: 66vh;
     position: relative;
-    top: 15vh;
+    top: 16vh;
     z-index: 1;
     align-items: center;
     justify-content: center;
+    margin: auto;   
+  }
+
+  .TileContainer[allMatched='true']{
+    filter: blur(3px);
+    opacity: 0.75;
+   
   }
 
   .TileContainer p {
