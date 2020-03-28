@@ -4,7 +4,7 @@ import './TileContainer.css';
 import TileFront from '../TileFront/TileFront';
 import TileBack from '../TileBack/TileBack';
 import tileData from './tileData'; 
-import Win from '../Win/Win';
+// import Win from '../Win/Win';
 
 
 
@@ -13,7 +13,7 @@ class TileContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            matchedCount: 0,
+            scoreCount: 0,
             tiles: tileData.map(tile => {
                 return {
                     isActive: false,
@@ -29,7 +29,7 @@ class TileContainer extends React.Component {
 
     handleClick(tileId, tileNumber) {
         const tiles = [...this.state.tiles];
-        let matchedCount = this.state.matchedCount;
+        let newScoreCount = this.state.scoreCount;
         
         if (tiles[tileId].isActive === true){
             return;
@@ -42,14 +42,16 @@ class TileContainer extends React.Component {
         if (check.length === 2 && check[0].tileNumber === check[1].tileNumber ) {
             tiles[check[0].tileId].isMatched = true;
             tiles[check[1].tileId].isMatched = true;
-            matchedCount += 2;
+            newScoreCount += 2;
 
         } else if (check.length === 2 && check[0].tileNumber !== check[1].tileNumber ) {
             tiles[check[0].tileId].isActive = false;
             tiles[check[1].tileId].isActive = false;
         }
 
-        this.setState({matchedCount: matchedCount, tiles: tiles });
+        this.props.scoreCountUpdater(newScoreCount);
+        this.setState({tiles: tiles });
+        this.setState({scoreCount: newScoreCount})
         
     }
 
@@ -87,7 +89,7 @@ class TileContainer extends React.Component {
         });
 
         return (
-            <div className="TileContainer" matchedCount={this.state.matchedCount}>
+            <div className="TileContainer" scoreCount={this.state.scoreCount}>
                {deck}
             </div>
          );
