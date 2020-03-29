@@ -4,8 +4,6 @@ import './TileContainer.css';
 import TileFront from '../TileFront/TileFront';
 import TileBack from '../TileBack/TileBack';
 import tileData from './tileData'; 
-// import Win from '../Win/Win';
-
 
 
 class TileContainer extends React.Component {
@@ -88,12 +86,16 @@ class TileContainer extends React.Component {
             }
         });
 
+
         return (
-            <div className="TileContainer" scoreCount={this.state.scoreCount} allMatched={this.state.scoreCount === 16 ? 'true' : 'false'}>
-               {deck}
-               <div className="youWon">
-                    
-               </div>
+            <div>
+                <div className="TileContainer" scorecount={this.state.scoreCount} allmatched={this.state.scoreCount === 16 ? 'true' : 'false'}>
+                    {deck}
+                </div>
+                <div className="youWon" allmatched={this.state.scoreCount === 16 ? 'true' : 'false'}>
+                    <h1>Congrats! You've matched all the cards!</h1>
+                    <h2>Click 'Play Again!' to start a new game!</h2>
+                </div> 
             </div>
          );
     }

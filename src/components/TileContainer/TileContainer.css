@@ -8,21 +8,49 @@
     height: 66vh;
     position: relative;
     top: 16vh;
-    z-index: 1;
+    z-index: 0;
     align-items: center;
     justify-content: center;
     margin: auto;   
   }
 
-  .TileContainer[allMatched='true']{
-    filter: blur(3px);
-    opacity: 0.75;
-   
-  }
+.TileContainer p {
+  display: none;
+}
 
-  .TileContainer p {
-    display: none;
-  }
+.TileContainer[allMatched='true']{
+  filter: blur(3px);
+  opacity: 0.75;   
+}
+
+.youWon[allMatched='false']{
+  display: none;
+}
+
+.youWon{ 
+  position: absolute;
+  top: 35vh;
+  left: 37.75vh;
+  z-index: 100;
+  width: 50vh;
+  color:  #9381FF;
+  font-weight: bolder;
+  font-family: 'Concert One';
+  text-align: center;
+}
+
+.youWon h1 {
+  font-size: 4.5vh;
+  padding: 1vh;
+}
+
+.youWon h2 {
+  font-size: 3vh;
+  padding: 1vh;
+}
+
+
+  
 
 
 
