@@ -28,9 +28,9 @@
 }
 
 .youWon{ 
-  position: absolute;
-  top: 35vh;
-  left: 37.75vh;
+  position: relative;
+  top: -30vh;
+  margin: auto;
   z-index: 100;
   width: 50vh;
   color:  #9381FF;
