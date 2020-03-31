@@ -11,7 +11,7 @@ function TileFront(props) {
             matched={props.matched.toString()}
             active={props.active.toString()}
             >
-            <img src={`./img/animal${props.tileNumber}.png`}/>
+            <img src={`./img/animal${props.tileNumber}.png`} alt='animal'/>
             
         </div>
     )
