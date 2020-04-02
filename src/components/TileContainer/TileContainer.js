@@ -1,12 +1,13 @@
 import React from 'react';
-// import { TransitionGroup, CSSTransition } from 'react-transition-group'; // ES6
+// import { TransitionGroup } from 'react-transition-group'; // ES6
 
 
 import './TileContainer.css';
 
 import TileFront from '../TileFront/TileFront';
 import TileBack from '../TileBack/TileBack';
-import tileData from './tileData'; 
+import {tileData} from './tileData'; 
+
 
 
 class TileContainer extends React.Component {
@@ -15,7 +16,7 @@ class TileContainer extends React.Component {
         super(props);
         this.state = {
             scoreCount: 0,
-            tiles: tileData.map(tile => {
+            tiles: tileData(16).map(tile => {
                 return {
                     isActive: false,
                     tileId: tile.id,
@@ -27,6 +28,9 @@ class TileContainer extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+        componentDidMount(){
+            
+        }
 
     handleClick(tileId, tileNumber) {
         const tiles = [...this.state.tiles]; // The state object is copied in to the 'tiles' auxiliary object.
@@ -37,7 +41,11 @@ class TileContainer extends React.Component {
         }
         
         tiles[tileId].isActive = !tiles[tileId].isActive; // Clicked tiles (identified basen on 'tileId') are made active (initial state is 'isActive: false').
-        
+        // setstate
+
+
+        ////////
+
         const check = this.state.tiles.filter(item => item.isActive === true && item.isMatched === false);
         
         // Active (but unmatched) tiles are filtered out and are pushed into this new array.
@@ -66,43 +74,51 @@ class TileContainer extends React.Component {
 
     render() {
         // The deck of tiles are being conditionally renderred depending on the tile component's 'matched' and 'active' properties.
-        const deck = this.state.tiles.map((tile, index) => {
+        const deck = this.state.tiles.map((tile) => {
+    
             if (tile.isActive === false) {
                 return (
-                <div key={tile.tileId}>
-                    <TileBack 
-                        key={tile.tileId}
-                        tileId={tile.tileId}
-                        onClick={this.handleClick}
-                        tileNumber={tile.tileNumber}
-                        matched={tile.isMatched}
-                        active={tile.isActive} />
-
-                <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
-                </div>
+                    
+                        <div key={tile.tileId}>
+                           
+                            <TileBack 
+                                key={tile.tileId}
+                                tileId={tile.tileId}
+                                onClick={this.handleClick}
+                                tileNumber={tile.tileNumber}
+                                matched={tile.isMatched}
+                                active={tile.isActive} />
+                            
+                            <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
+                        </div>
+                    
                 )
             } else {
                 return (
-                <div key={tile.tileId}>
-                    <TileFront 
-                        key={tile.tileId}
-                        tileId={tile.tileId}
-                        onClick={this.handleClick}
-                        tileNumber={tile.tileNumber}
-                        matched={tile.isMatched}
-                        active={tile.isActive}/>
+                    //
+                        <div key={tile.tileId}>
+                            <TileFront 
+                                key={tile.tileId}
+                                tileId={tile.tileId}
+                                onClick={this.handleClick}
+                                tileNumber={tile.tileNumber}
+                                matched={tile.isMatched}
+                                active={tile.isActive}/>
 
-                    <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
-                </div>
+                            <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
+                        </div>
+                    //  
                 )
             }
+       
         });
 
+        // console.log(this.state.tiles[4].isActive);
 
         return (
             <div>
                 <div className="TileContainer" scorecount={this.state.scoreCount} allmatched={this.state.scoreCount === 16 ? 'true' : 'false'}>
-                    {deck}
+                        {deck}
                 </div>
                 <div className="youWon" allmatched={this.state.scoreCount === 16 ? 'true' : 'false'}>
                     <h1>Congrats! You've matched all the cards!</h1>
