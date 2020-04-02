@@ -28,10 +28,6 @@ class TileContainer extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-        componentDidMount(){
-            
-        }
-
     handleClick(tileId, tileNumber) {
         const tiles = [...this.state.tiles]; // The state object is copied in to the 'tiles' auxiliary object.
         let newScoreCount = this.state.scoreCount;
@@ -40,36 +36,31 @@ class TileContainer extends React.Component {
             return; // Meaning: cards already flipped cannot be flipped back.
         }
         
-        tiles[tileId].isActive = !tiles[tileId].isActive; // Clicked tiles (identified basen on 'tileId') are made active (initial state is 'isActive: false').
-        // setstate
-
-
-        ////////
-
-        const check = this.state.tiles.filter(item => item.isActive === true && item.isMatched === false);
-        
-        // Active (but unmatched) tiles are filtered out and are pushed into this new array.
-
-        if (check.length === 2 && check[0].tileNumber === check[1].tileNumber ) {
-            tiles[check[0].tileId].isMatched = true;
-            tiles[check[1].tileId].isMatched = true;
-            newScoreCount += 2;
-        
-        // If the length of the 'check' array (i.e. number of active tiles) is 2, the two cards are being compared to see if they have the same image on. If so, their 'isMatched' state is set to true and the 'scoreCount' is increased.  
-
-        } else if (check.length === 2 && check[0].tileNumber !== check[1].tileNumber ) {
-            tiles[check[0].tileId].isActive = false;
-            tiles[check[1].tileId].isActive = false;
-       
-        // Unidentical tiles are flipped back upside down ('isActive' state is set back to 'false').
-
+        if (this.state.tiles.filter(item => item.isActive === true && item.isMatched === false).length === 2) {
+            return
         }
 
-        this.props.scoreCountUpdater(newScoreCount); // The scoreCountUpdate() function is invoked with the 'newScoreCount' passed in as an argument.
-        this.setState({tiles: tiles }); // The 'tiles' object is being set as the state of the TileContainer component.
-        this.setState({scoreCount: newScoreCount})
-        
+        tiles[tileId].isActive = !tiles[tileId].isActive; // Clicked tiles (identified basen on 'tileId') are made active (initial state is 'isActive: false').
+        this.setState({tiles: tiles });
 
+        const check = this.state.tiles.filter(item => item.isActive === true && item.isMatched === false);
+        // Active (but unmatched) tiles are filtered out and are pushed into this new array.
+        
+        setTimeout(() => {
+            if (check.length === 2 && check[0].tileNumber === check[1].tileNumber ) {
+                tiles[check[0].tileId].isMatched = true;
+                tiles[check[1].tileId].isMatched = true;
+                newScoreCount += 2;
+                this.setState({scoreCount: newScoreCount})
+            // If the length of the 'check' array (i.e. number of active tiles) is 2, the two cards are being compared to see if they have the same image on. If so, their 'isMatched' state is set to true and the 'scoreCount' is increased.  
+            } else if (check.length === 2 && check[0].tileNumber !== check[1].tileNumber ) {
+                tiles[check[0].tileId].isActive = false;
+                tiles[check[1].tileId].isActive = false;
+            // Unidentical tiles are flipped back upside down ('isActive' state is set back to 'false').
+            }
+            this.props.scoreCountUpdater(newScoreCount); // The scoreCountUpdate() function is invoked with the 'newScoreCount' passed in as an argument.
+            this.setState({tiles: tiles }); // The 'tiles' object is being set as the state of the TileContainer component.
+        }, 900)
     }
 
     render() {
@@ -78,9 +69,7 @@ class TileContainer extends React.Component {
     
             if (tile.isActive === false) {
                 return (
-                    
                         <div key={tile.tileId}>
-                           
                             <TileBack 
                                 key={tile.tileId}
                                 tileId={tile.tileId}
@@ -91,11 +80,9 @@ class TileContainer extends React.Component {
                             
                             <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
                         </div>
-                    
                 )
             } else {
                 return (
-                    //
                         <div key={tile.tileId}>
                             <TileFront 
                                 key={tile.tileId}
@@ -107,13 +94,8 @@ class TileContainer extends React.Component {
 
                             <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
                         </div>
-                    //  
-                )
-            }
-       
+                )}
         });
-
-        // console.log(this.state.tiles[4].isActive);
 
         return (
             <div>
@@ -126,8 +108,7 @@ class TileContainer extends React.Component {
                 </div> 
             </div>
          );
-    }
-    
+    }  
 };
 
 export default TileContainer;

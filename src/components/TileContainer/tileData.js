@@ -1,5 +1,13 @@
 export const tileData = (numoftiles) => {
-    const unshuffled = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+    
+    const unshuffled = () => {
+        let result = [];
+        for (let i = 1; i < numoftiles/2 +1; i++) {
+            result.push(i);
+            result.push(i);
+        }
+        return result
+    } 
     
     let shuffled = [];
     
@@ -11,7 +19,7 @@ export const tileData = (numoftiles) => {
         shuffled = array;
     }
 
-    shuffle(unshuffled);
+    shuffle(unshuffled());
     
     let result = [];
     for (let i = 0; i < numoftiles; i++) {
