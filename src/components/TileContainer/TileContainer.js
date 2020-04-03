@@ -1,14 +1,10 @@
 import React from 'react';
-// import { TransitionGroup } from 'react-transition-group'; // ES6
-
 
 import './TileContainer.css';
 
 import TileFront from '../TileFront/TileFront';
 import TileBack from '../TileBack/TileBack';
 import {tileData} from './tileData'; 
-
-
 
 class TileContainer extends React.Component {
 
@@ -26,6 +22,21 @@ class TileContainer extends React.Component {
             })
         }
         this.handleClick = this.handleClick.bind(this);
+        this.resetBoard = this.resetBoard.bind(this);
+    }
+
+    resetBoard() {
+        this.setState({
+            scoreCount: 0,
+            tiles: tileData(16).map(tile => {
+                return {
+                    isActive: false,
+                    tileId: tile.id,
+                    tileNumber: tile.number,
+                    isMatched: false
+                }
+            })
+        })
     }
 
     handleClick(tileId, tileNumber) {
@@ -79,6 +90,7 @@ class TileContainer extends React.Component {
                                 active={tile.isActive} />
                             
                             <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
+                            {/* REMOVE LATER */}
                         </div>
                 )
             } else {
@@ -93,14 +105,15 @@ class TileContainer extends React.Component {
                                 active={tile.isActive}/>
 
                             <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
+                            {/* REMOVE LATER */}
                         </div>
                 )}
         });
 
         return (
             <div>
-                <div className="TileContainer" scorecount={this.state.scoreCount} allmatched={this.state.scoreCount === 16 ? 'true' : 'false'}>
-                        {deck}
+                <div className="TileContainer" scorecount={this.state.scoreCount} allmatched={this.state.scoreCount === 16 ? 'true' : 'false'} >
+                    {deck}
                 </div>
                 <div className="youWon" allmatched={this.state.scoreCount === 16 ? 'true' : 'false'}>
                     <h1>Congrats! You've matched all the cards!</h1>

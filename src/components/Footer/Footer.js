@@ -9,14 +9,12 @@ class Footer extends React.Component {
                     <h2>Matches</h2>
                     <h3>{this.props.scoreCount}</h3>
                 </div>
-                <div className="NewGameButton">
+                <div className="NewGameButton" onClick={this.props.resetBoard}>
                     <h2>Play Again!</h2>
                 </div>
             </div>
         )
     }
 }
-
-
 
 export default Footer;
