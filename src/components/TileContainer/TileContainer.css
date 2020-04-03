@@ -14,10 +14,6 @@
     margin: auto;   
   }
 
-.TileContainer p {
-  display: none;
-}
-
 .TileContainer[allMatched='true']{
   filter: blur(3px);
   opacity: 0.75;   
@@ -47,22 +43,4 @@
 .youWon h2 {
   font-size: 3vh;
   padding: 1vh;
-}
-
-.example-enter {
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 5000ms ease-in;
-}
-
-.example-leave {
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 3000ms ease-in;
 }

@@ -88,9 +88,6 @@ class TileContainer extends React.Component {
                                 tileNumber={tile.tileNumber}
                                 matched={tile.isMatched}
                                 active={tile.isActive} />
-                            
-                            <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
-                            {/* REMOVE LATER */}
                         </div>
                 )
             } else {
@@ -103,9 +100,6 @@ class TileContainer extends React.Component {
                                 tileNumber={tile.tileNumber}
                                 matched={tile.isMatched}
                                 active={tile.isActive}/>
-
-                            <p>ID: {tile.tileId} || num: {tile.tileNumber} <br/> active: {tile.isActive ? 'true' : 'false'} <br/> matched: {tile.isMatched ? 'true' : 'false'}</p>
-                            {/* REMOVE LATER */}
                         </div>
                 )}
         });
