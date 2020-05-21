@@ -12,12 +12,14 @@ class TileContainer extends React.Component {
         super(props);
         this.state = {
             scoreCount: 0,
+            level: 'easy',
+            levelSelected: 'true',
             tiles: tileData(16).map(tile => {
                 return {
                     isActive: false,
                     tileId: tile.id,
                     tileNumber: tile.number,
-                    isMatched: false
+                    isMatched: false,
                 }
             })
         }
@@ -112,6 +114,13 @@ class TileContainer extends React.Component {
                 <div className="youWon" allmatched={this.state.scoreCount === 16 ? 'true' : 'false'}>
                     <h1>Congrats! You've matched all the cards!</h1>
                     <h2>Click 'Play Again!' to start a new game!</h2>
+                </div> 
+                <div className="levelSelector" levelSelected={this.state.levelSelected} level={this.state.level}>
+                    <div>
+                        <div className="levelEasy">Easy</div>
+                        <div className="levelModerate">Moderate</div>
+                        <div className="levelHard">Hard</div>
+                    </div>
                 </div> 
             </div>
          );

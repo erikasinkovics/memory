@@ -19,6 +19,14 @@
   opacity: 0.75;   
 }
 
+.levelSelector[levelSelected='true'] {
+  display: none;
+}
+
+.levelSelector[levelSelected='false'] {
+  display: inline;
+}
+
 .youWon[allMatched='false']{
   display: none;
 }

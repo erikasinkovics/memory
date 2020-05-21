@@ -14,9 +14,17 @@
     width: 12vh;
     height: 12vh;
     border-radius: 2vh;
+    border-width: 0.5px;
+    border-color: whitesmoke;
+    border-style: solid;
     box-shadow: 0.5vh 0.5vh 1vh lightgrey;
     align-items: center;
     justify-items: center;
+    user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
         
     
   }
