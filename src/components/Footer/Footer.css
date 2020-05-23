@@ -3,7 +3,6 @@
 .Footer {
     display: flex;
     flex-direction: row;
-    padding-top: 2vh;
     position: fixed;
     bottom: 0;
     z-index: 2;
@@ -11,6 +10,7 @@
     width: 100%;
     background-color: #B8B8FF;
     justify-content: center;
+    align-items: center;
     font-family: 'Concert One';
     font-weight: bolder;
     color: #F8F7FF;
@@ -26,13 +26,14 @@
     padding: 0vh;
     margin-right: 1.5vh;
     width: 30vh;
-    height: 12vh;
-    border-radius: 2vh;
+    height: 10vh;
+    border-radius: 6vh;
     display: flex;
     flex-direction: row;
-    align-self: flex-start;
+    align-self: center;
     align-items: center;
     justify-content: space-around;
+    
 }
 
 .Scores h2 {
@@ -48,11 +49,11 @@
     padding: 0vh;
     margin-left: 1.5vh;
     width: 30vh;
-    height: 12vh;
-    border-radius: 2vh;
+    height: 10vh;
+    border-radius: 6vh;
     display: flex;
     flex-direction: row;
-    align-self: flex-start;
+    align-self: center;
     align-items: center;
     justify-content: space-around;
 }

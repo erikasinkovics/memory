@@ -12,16 +12,17 @@ class TileContainer extends React.Component {
         super(props);
         this.state = {
             scoreCount: 0,
-            level: 'easy',
+            level: undefined,
             levelSelected: 'true',
-            tiles: tileData(16).map(tile => {
-                return {
-                    isActive: false,
-                    tileId: tile.id,
-                    tileNumber: tile.number,
-                    isMatched: false,
-                }
-            })
+            // tiles: tileData(16).map(tile => {
+            //     return {
+            //         isActive: false,
+            //         tileId: tile.id,
+            //         tileNumber: tile.number,
+            //         isMatched: false,
+            //     }
+            // })
+            tiles: []
         }
         this.handleClick = this.handleClick.bind(this);
         this.resetBoard = this.resetBoard.bind(this);
@@ -74,6 +75,10 @@ class TileContainer extends React.Component {
             this.props.scoreCountUpdater(newScoreCount); // The scoreCountUpdate() function is invoked with the 'newScoreCount' passed in as an argument.
             this.setState({tiles: tiles }); // The 'tiles' object is being set as the state of the TileContainer component.
         }, 900)
+    }
+
+    selectLevel(level) {
+
     }
 
     render() {
