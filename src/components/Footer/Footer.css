@@ -6,7 +6,7 @@
     position: fixed;
     bottom: 0;
     z-index: 2;
-    height: 14vh;
+    height: 16vh;
     width: 100%;
     background-color: #B8B8FF;
     justify-content: center;
@@ -32,16 +32,26 @@
     flex-direction: row;
     align-self: center;
     align-items: center;
-    justify-content: space-around;
-    
+    justify-content: space-between;
 }
 
 .Scores h2 {
-    font-size: 3.5vh;
+    font-size: 4vh;
+    text-align: center;
+    padding: 0;
+    padding-left: 3.5vh;
+    align-self: center;
+    margin: 0;
+    
 }
 
 .Scores h3 {
-    font-size: 5vh;
+    font-size: 5.5vh;
+    background-color: lightcoral;
+    line-height: 10vh;
+    border-radius: 6vh;
+    width: 10vh;
+    text-align: center;
 }
 
 .NewGameButton {
@@ -59,7 +69,7 @@
 }
 
 .NewGameButton h2 {
-    font-size: 3.5vh;
+    font-size: 4.5vh;
 }
 
 .NewGameButton:hover {
