@@ -12,12 +12,12 @@
     top: 0;
     z-index: 2;
     margin: auto;
-   
+
 }
 
 .Header h1 {
     font-family: 'Monoton', cursive;
-    font-size: 12vh;
+    font-size: 10vh;
     color: #F8F7FF;
     text-shadow: 0.5vh 0.5vh 1vh #9381FF;
     margin: auto;
