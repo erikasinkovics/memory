@@ -3,19 +3,18 @@ import './TileFront.css';
 
 
 function TileFront(props) {
-    
+
     return (
-        <div 
+        <div
             className="TileFront"
             onClick={() => props.onClick(props.tileId, props.tileNumber)}
             matched={props.matched.toString()}
             active={props.active.toString()}
             >
-            <img src={`./img/animal${props.tileNumber}.png`} alt='animal'/>
-            
+            <img alt='animal' src={require(`../../../public/img/animal${props.tileNumber}.png`)} />
         </div>
     )
-    
+
 };
 
 

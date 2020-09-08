@@ -4,7 +4,7 @@ import './TileContainer.css';
 
 import TileFront from '../TileFront/TileFront';
 import TileBack from '../TileBack/TileBack';
-import {tileData} from './tileData'; 
+import {tileData} from './tileData';
 
 class TileContainer extends React.Component {
 
@@ -14,15 +14,15 @@ class TileContainer extends React.Component {
             scoreCount: 0,
             level: undefined,
             levelSelected: 'true',
-            // tiles: tileData(16).map(tile => {
-            //     return {
-            //         isActive: false,
-            //         tileId: tile.id,
-            //         tileNumber: tile.number,
-            //         isMatched: false,
-            //     }
-            // })
-            tiles: []
+            tiles: tileData(16).map(tile => {
+                return {
+                    isActive: false,
+                    tileId: tile.id,
+                    tileNumber: tile.number,
+                    isMatched: false,
+                }
+            })
+            // tiles: []
         }
         this.handleClick = this.handleClick.bind(this);
         this.resetBoard = this.resetBoard.bind(this);
@@ -45,11 +45,11 @@ class TileContainer extends React.Component {
     handleClick(tileId, tileNumber) {
         const tiles = [...this.state.tiles]; // The state object is copied in to the 'tiles' auxiliary object.
         let newScoreCount = this.state.scoreCount;
-        
+
         if (tiles[tileId].isActive === true){
             return; // Meaning: cards already flipped cannot be flipped back.
         }
-        
+
         if (this.state.tiles.filter(item => item.isActive === true && item.isMatched === false).length === 2) {
             return
         }
@@ -59,14 +59,14 @@ class TileContainer extends React.Component {
 
         const check = this.state.tiles.filter(item => item.isActive === true && item.isMatched === false);
         // Active (but unmatched) tiles are filtered out and are pushed into this new array.
-        
+
         setTimeout(() => {
             if (check.length === 2 && check[0].tileNumber === check[1].tileNumber ) {
                 tiles[check[0].tileId].isMatched = true;
                 tiles[check[1].tileId].isMatched = true;
                 newScoreCount += 2;
                 this.setState({scoreCount: newScoreCount})
-            // If the length of the 'check' array (i.e. number of active tiles) is 2, the two cards are being compared to see if they have the same image on. If so, their 'isMatched' state is set to true and the 'scoreCount' is increased.  
+            // If the length of the 'check' array (i.e. number of active tiles) is 2, the two cards are being compared to see if they have the same image on. If so, their 'isMatched' state is set to true and the 'scoreCount' is increased.
             } else if (check.length === 2 && check[0].tileNumber !== check[1].tileNumber ) {
                 tiles[check[0].tileId].isActive = false;
                 tiles[check[1].tileId].isActive = false;
@@ -84,11 +84,11 @@ class TileContainer extends React.Component {
     render() {
         // The deck of tiles are being conditionally renderred depending on the tile component's 'matched' and 'active' properties.
         const deck = this.state.tiles.map((tile) => {
-    
+
             if (tile.isActive === false) {
                 return (
                         <div key={tile.tileId}>
-                            <TileBack 
+                            <TileBack
                                 key={tile.tileId}
                                 tileId={tile.tileId}
                                 onClick={this.handleClick}
@@ -100,7 +100,7 @@ class TileContainer extends React.Component {
             } else {
                 return (
                         <div key={tile.tileId}>
-                            <TileFront 
+                            <TileFront
                                 key={tile.tileId}
                                 tileId={tile.tileId}
                                 onClick={this.handleClick}
@@ -119,17 +119,17 @@ class TileContainer extends React.Component {
                 <div className="youWon" allmatched={this.state.scoreCount === 16 ? 'true' : 'false'}>
                     <h1>Congrats! You've matched all the cards!</h1>
                     <h2>Click 'Play Again!' to start a new game!</h2>
-                </div> 
+                </div>
                 <div className="levelSelector" levelSelected={this.state.levelSelected} level={this.state.level}>
                     <div>
                         <div className="levelEasy">Easy</div>
                         <div className="levelModerate">Moderate</div>
                         <div className="levelHard">Hard</div>
                     </div>
-                </div> 
+                </div>
             </div>
          );
-    }  
+    }
 };
 
 export default TileContainer;
