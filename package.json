@@ -13,7 +13,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "^3.4.3",
-    "react-transition-group": "^1.2.1"
+    "react-transition-group": "^1.2.1",
+    "sublime-js-prettier": "^1.30.7"
   },
   "scripts": {
     "start": "react-scripts start",
