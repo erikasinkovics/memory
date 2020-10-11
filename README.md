@@ -1,6 +1,8 @@
 # Memory Game in ReactJS
 Welcome to the gh repository of my first ReactJS project, a simple memory game with the purpose of matching all the 8 pairs of cards.
 
+This projects was coded from scratch using the knowledge I have acquired after taking my first ReactJS course.
+
 🕹 [Click here to play!](https://erikasinkovics.github.io/memory/)
 
 -----
