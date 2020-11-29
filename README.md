@@ -3,7 +3,7 @@ Welcome to the gh repository of my first ReactJS project, a simple memory game w
 
 This project was coded **from scratch** using the knowledge I have acquired after taking my first ReactJS course [on Scrimba](https://scrimba.com/learn/learnreact).
 
-The project demonstrates the following concepts:
+### The project demonstrates the following concepts:
 - class based components
 - props
 - state management
